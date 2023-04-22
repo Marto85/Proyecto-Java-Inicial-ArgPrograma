@@ -8,7 +8,7 @@ public class Estudiante {
 
     // Para la casa pongo un atributo para el nombre que traigo del archivo csv
     private String nombreCasa;
-    // Y otro atribuo para el objeto casa que se asignará cuando lo agregue efectivamente a la casa
+    // Y otro atributo para el objeto casa que se asignará cuando lo agregue efectivamente a la casa
     //  que corresponda
     private Casa casa;
 
