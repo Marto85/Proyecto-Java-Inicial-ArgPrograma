@@ -1,0 +1,11 @@
+Este último archivo llamado `ProcesadorArchivoCsv` contiene una clase que se encarga de procesar un archivo CSV que contiene información de estudiantes y devuelve una lista de objetos `Estudiante`. 
+
+La clase tiene dos métodos `procesarArchivo` y `procesarArchivoConValidacion`, que son similares, pero el segundo incluye validación mediante una expresión regular para asegurarse de que las líneas del archivo sigan un formato específico. 
+
+La clase tiene un campo llamado `nombreArchivo`, que es el nombre del archivo CSV que se va a procesar. 
+
+El método `separarLinea` se utiliza para separar una línea del archivo en sus campos individuales, utilizando la coma como separador. 
+
+El método `procesarArchivo` recorre el archivo y procesa cada línea del archivo, creando un objeto `Estudiante` para cada línea y agregándolo a una lista. 
+
+El método `procesarArchivoConValidacion` es similar al anterior, pero utiliza una expresión regular para validar cada línea antes de procesarla y, si no cumple con el patrón especificado, la omite y continúa con la siguiente línea. También cuenta cuántas líneas inválidas se encontraron y muestra un mensaje de error si hay alguna.

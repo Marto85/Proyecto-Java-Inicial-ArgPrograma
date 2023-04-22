@@ -1,0 +1,15 @@
+Hogwarts.java
+
+Es una clase que representa el mundo de Hogwarts y permite agregar estudiantes a las diferentes casas que existen. 
+
+Comienza importando las clases necesarias: `Casa` y `Estudiante`. También importa `JOptionPane` que es una clase de la librería Swing de Java que permite mostrar diálogos modales en una aplicación.
+
+Luego, declara una variable privada de tipo `Map<String, Casa>` llamada `casas`, que será utilizada para almacenar las casas y los estudiantes que pertenecen a cada una. En este caso, el mapa se inicializa con las cuatro casas que existen en Hogwarts.
+
+El constructor de la clase inicializa el mapa `casas` con las cuatro casas existentes en Hogwarts. 
+
+El método `agregarEstudiante` recibe un objeto `Estudiante` y lo agrega a la casa correspondiente. Primero se verifica si la casa existe en el mapa `casas`, y si es así, se llama al método `agregarEstudiante` de la casa correspondiente para agregar el estudiante. Si no existe la casa, se lanza una excepción.
+
+El método `getCasa` recibe el nombre de una casa y devuelve el objeto `Casa` correspondiente desde el mapa `casas`.
+
+En resumen, `Hogwarts` es una clase que se encarga de administrar a los estudiantes en las diferentes casas de Hogwarts.
