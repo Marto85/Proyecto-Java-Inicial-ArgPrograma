@@ -22,20 +22,29 @@ public class ProcesadorArchivoCsv {
     }
 
     public ArrayList<Estudiante> procesarArchivo(){
+        // Creo la lista que contendrá los resultados
         ArrayList<Estudiante> lista = new ArrayList<>();
+        // Armo un path al archivo en disco pero no se accede todavía
         Path f = Paths.get(nombreArchivo);
 
+        // Controlando que el archivo existe
         if (Files.exists(f) && Files.isReadable(f)) {
 
+            // Abro y podría provocar una excepción por eso el try-catch
             try (Scanner miEscaner = new Scanner(f, "UTF-8")) {
 
                 int contadorLineas = 1;
 
+                // Recorrer el archivo línea por línea
                 while (miEscaner.hasNextLine()) {
+                    // Leo del archivo una línea
                     String linea = miEscaner.nextLine();
+                    // Saltea la primera línea de encabezados
                     if (contadorLineas > 1) {
+                        // Separar los tokens de cadena en la línea
                         String[] datos = separarLinea(linea);
 //                        System.out.println("Procesando línea: " + contadorLineas);
+                        // Valido que realmente esta línea corresponde a un estudiante
                         if (datos[3].contains("Student")){
 //                          if (datos[3].equals("Student")){
                             Estudiante e = Estudiante.parseStringArray(datos);
@@ -107,8 +116,14 @@ public class ProcesadorArchivoCsv {
 
 
     private String[] separarLinea(String linea) {
-        if (!linea.equals("") && !linea.equals("\n"))
-            return linea.split("\\,");
+        if (!linea.equals("") && !linea.equals("\n")) {
+            // la coma está siendo vista como una expresión regular y por eso las barras de escape tanto de regex como
+            // de java
+            return linea.split(",");
+            // retorna un vector con un elemento por cada columna separada por coma de la línea de datos
+
+        }
+
 
         return new String[0];
 

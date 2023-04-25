@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="HarryPoter-Grupo8" />
+        <module name="examenfinal" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="HarryPoter-Grupo8" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
