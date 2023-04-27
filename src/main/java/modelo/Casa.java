@@ -1,5 +1,7 @@
 package modelo;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 
 public class Casa {
@@ -8,10 +10,12 @@ public class Casa {
     private String nombre;
     private ArrayList<Estudiante> estudiantes;
 
+
     public Casa(int idCasa, String nombre) {
         this.idCasa = idCasa;
         this.nombre = nombre;
         this.estudiantes = new ArrayList<>();
+
     }
 
     public String getNombre() {
@@ -22,9 +26,12 @@ public class Casa {
         return idCasa;
     }
 
+
+
     public int getCantidadEstudiantes(){
         return estudiantes.size();
     }
+
 
     public void agregarEstudiante(Estudiante e){
         if (e != null && e.getNombreCasa().equals(nombre)){
@@ -35,5 +42,8 @@ public class Casa {
             throw new RuntimeException("Nombre de casa inválido. [" + e.getNombreCasa() + "]");
 
     }
+
+
+
 
 }

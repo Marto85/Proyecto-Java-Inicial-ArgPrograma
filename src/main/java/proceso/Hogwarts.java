@@ -4,6 +4,7 @@ import modelo.Casa;
 import modelo.Estudiante;
 
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,6 +28,7 @@ public class Hogwarts {
             throw new RuntimeException("Error: El nombre de la casa no existe.");
 
     }
+
 
     public Casa getCasa(String nombre){
         return casas.get(nombre);
