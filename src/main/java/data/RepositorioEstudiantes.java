@@ -64,7 +64,7 @@ public class RepositorioEstudiantes {
             String query = "select * from Estudiantes";
             ResultSet rs = sentenciaConsulta.executeQuery(query);
 
-            RepositorioCasas repositorioCasas = new RepositorioCasas(conexion); // Crear instancia de RepositorioCasas
+            RepositorioCasas repositorioCasas = new RepositorioCasas(conexion); // Crear instancia de Repositorio de casas
 
             while (rs.next()) {
                 int numero = rs.getInt("numero");
@@ -72,8 +72,6 @@ public class RepositorioEstudiantes {
                 char genero = rs.getString("genero").charAt(0);
                 String especie = rs.getString("especie");
                 String blood_status = rs.getString("blood_status");
-                int id_casa = rs.getInt("id_casa");
-                Casa casa = repositorioCasas.getCasa(id_casa); // Obtener la casa correspondiente de la instancia de RepositorioCasas
                 Estudiante estudiante = new Estudiante(numero, nombre, genero, especie, blood_status);
                 estudiantes.add(estudiante);
             }
@@ -83,6 +81,8 @@ public class RepositorioEstudiantes {
         }
         return estudiantes;
     }
+
+
 
 }
 
