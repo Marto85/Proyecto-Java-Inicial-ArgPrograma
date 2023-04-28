@@ -37,6 +37,7 @@ public class ProcesoAplicacion {
 
         // Persistencia de Datos
         persistirCasas();
+        persistirEstudiantes();
 
     }
 
@@ -114,6 +115,19 @@ public class ProcesoAplicacion {
 
         }
     }
-    
+
+    private void persistirEstudiantes() {
+        Connection miConexion = ProveedorConexionSqlite.conectar(".\\data\\baseDeDatos.sqlite");
+        RepositorioEstudiantes repositorio = new RepositorioEstudiantes(miConexion);
+
+        for (Estudiante estudiante : repositorio.getTodosLosEstudiantes()) {
+            Estudiante estudianteGuardado = repositorio.getEstudiantes(estudiante.getNumero());
+            if (estudianteGuardado == null) {
+                repositorio.agregarEstudiantes(estudiante);
+            }
+        }
+    }
+
+
 
 }

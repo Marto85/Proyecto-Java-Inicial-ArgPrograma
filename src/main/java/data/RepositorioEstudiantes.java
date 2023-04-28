@@ -1,8 +1,11 @@
 package data;
 
+import modelo.Casa;
 import modelo.Estudiante;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RepositorioEstudiantes {
     private Connection conexion;
@@ -54,4 +57,32 @@ public class RepositorioEstudiantes {
         return result;
 
     }
+
+    public List<Estudiante> getTodosLosEstudiantes() {
+        List<Estudiante> estudiantes = new ArrayList<>();
+        try (Statement sentenciaConsulta = conexion.createStatement()) {
+            String query = "select * from Estudiantes";
+            ResultSet rs = sentenciaConsulta.executeQuery(query);
+
+            RepositorioCasas repositorioCasas = new RepositorioCasas(conexion); // Crear instancia de RepositorioCasas
+
+            while (rs.next()) {
+                int numero = rs.getInt("numero");
+                String nombre = rs.getString("nombre");
+                char genero = rs.getString("genero").charAt(0);
+                String especie = rs.getString("especie");
+                String blood_status = rs.getString("blood_status");
+                int id_casa = rs.getInt("id_casa");
+                Casa casa = repositorioCasas.getCasa(id_casa); // Obtener la casa correspondiente de la instancia de RepositorioCasas
+                Estudiante estudiante = new Estudiante(numero, nombre, genero, especie, blood_status);
+                estudiantes.add(estudiante);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error: en sentencia de consulta de estudiantes: \n" + ex.getMessage());
+            ex.printStackTrace();
+        }
+        return estudiantes;
+    }
+
 }
+
