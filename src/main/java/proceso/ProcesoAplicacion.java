@@ -78,7 +78,6 @@ public class ProcesoAplicacion {
             hogwarts.agregarEstudiante(e);
         }
 
-
     }
 
     private void cantidadEstudiantesPorCasa() {
@@ -86,15 +85,19 @@ public class ProcesoAplicacion {
         for (String casa : new String[] {"Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"}){
             System.out.println("Casa: " + casa + " ==> " + hogwarts.getCasa(casa).getCantidadEstudiantes() + " estudiantes");
         }
+        System.out.println("------------------------");
+        System.out.println("------------------------");
     }
 
     private void listadoEstudiantesNoHumanos() {
+        System.out.println("A continuación informamos la lista de estudiantes NO humanos en Hogwarts:");
         for(Estudiante e : lista){
-            System.out.println(e);
+            if (!e.getEspecie().equals("Human")) {
+                Estudiante eNoHumano = e;
+                System.out.println(eNoHumano);
+            }
         }
     }
-        
-        
 
 
     private void persistirCasas() {
