@@ -2,6 +2,7 @@ package proceso;
 
 import data.ProveedorConexionSqlite;
 import data.RepositorioCasas;
+import data.RepositorioEstudiantes;
 import modelo.Casa;
 import modelo.Estudiante;
 
@@ -12,6 +13,8 @@ import java.util.Scanner;
 public class ProcesoAplicacion {
     Scanner miEscanner = new Scanner(System.in);
     ArrayList<Estudiante> lista;
+    ArrayList<Estudiante> noHumanos;
+    ArrayList<Estudiante> Humanos;
     Hogwarts hogwarts;
 
     public ProcesoAplicacion() {
@@ -65,9 +68,9 @@ public class ProcesoAplicacion {
         lista = procArchivo.procesarArchivoConValidacion();
         // Mostrar al usuario que el archivo se procesó.
         System.out.println("Proceso finalizado, " + lista.size() + " estudiantes leídos.");
-//        System.out.println("\nLista de Estudiantes:");
-//        for(Estudiante e : lista)
-//            System.out.println(e);
+        System.out.println("\nLista de Estudiantes:");
+       // for(Estudiante e : lista)
+       //     System.out.println(e);
     }
 
     private void agregarEstudiantesHogwarts() {
@@ -86,8 +89,13 @@ public class ProcesoAplicacion {
     }
 
     private void listadoEstudiantesNoHumanos() {
-
+        for(Estudiante e : lista){
+            System.out.println(e);
+        }
     }
+        
+        
+
 
     private void persistirCasas() {
 
@@ -103,5 +111,6 @@ public class ProcesoAplicacion {
 
         }
     }
+    
 
 }

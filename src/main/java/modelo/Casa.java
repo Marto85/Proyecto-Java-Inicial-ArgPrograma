@@ -42,6 +42,9 @@ public class Casa {
             throw new RuntimeException("Nombre de casa inválido. [" + e.getNombreCasa() + "]");
 
     }
+    
+    
+    
 
 
 
