@@ -64,7 +64,7 @@ public class RepositorioEstudiantes {
             String query = "select * from Estudiantes";
             ResultSet rs = sentenciaConsulta.executeQuery(query);
 
-            RepositorioCasas repositorioCasas = new RepositorioCasas(conexion); // Crear instancia de Repositorio de casas
+            RepositorioEstudiantes repositorioEstudiantes = new RepositorioEstudiantes(conexion); // Crear instancia de Repositorio de Estudiantes
 
             while (rs.next()) {
                 int numero = rs.getInt("numero");
